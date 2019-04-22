@@ -8,5 +8,6 @@
 <%
 
     out.print(request.getAttribute("message"));
+    out.print("this is test.jsp");
 
 %>

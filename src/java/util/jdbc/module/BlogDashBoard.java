@@ -24,69 +24,68 @@ public class BlogDashBoard extends DataBaseConnection {
 
             ps = connection.prepareStatement(sql);
             resultSet = ps.executeQuery();
-            
-            if(resultSet.next()){
-                
+
+            if (resultSet.next()) {
+
                 int count = resultSet.getInt("count(*)");
-                
+
                 return count;
             }
-            
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(BlogDashBoard.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-       return 0;
+        return 0;
     }
-    
-    public int countComments(){
-        
-        
-         try {
+
+    public int countComments() {
+
+        try {
             openConnection();
 
             String sql = "select count(*) from comment;";
 
             ps = connection.prepareStatement(sql);
             resultSet = ps.executeQuery();
-            
-            if(resultSet.next()){
-                
+
+            if (resultSet.next()) {
+
                 int count = resultSet.getInt("count(*)");
-                
+
                 return count;
             }
-            
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(BlogDashBoard.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
     }
-    
-    public int countViews(){
-        
-        
-         try {
+
+    public int countViews() {
+
+        try {
             openConnection();
 
             String sql = "select sum(views_count) from postviews;";
 
             ps = connection.prepareStatement(sql);
             resultSet = ps.executeQuery();
-            
-            if(resultSet.next()){
-                
+
+            if (resultSet.next()) {
+
                 int count = resultSet.getInt("sum(views_count)");
-                
+
                 return count;
             }
-            
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(BlogDashBoard.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+
+    public long countVotes() {
+        return 12;
     }
 }

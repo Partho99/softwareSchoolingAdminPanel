@@ -54,7 +54,10 @@ public class DataBaseConnection {
                 connection.close();
             }
         } catch (SQLException e) {
+            System.err.println(e);
         }
     }
+    
+   
 
 }
